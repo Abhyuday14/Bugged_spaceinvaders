@@ -7,8 +7,8 @@ import random
 pygame.font.init()
 
 WIDTH, HEIGHT = 800, 580
-# GAME WINDOW, the guy teaching used WIN
-WIN = pygame.display.set_mode((WIDTH, HEIGHT)) # WIDTH HEIGHT IS A TUPLE
+
+WIN = pygame.display.set_mode((WIDTH, HEIGHT)) 
 pygame.display.set_caption("ISTE_Pygame")
 
 RED_SPACE_SHIP = pygame.image.load(os.path.join("assets", "pixel_ship_red_small.png"))
@@ -17,7 +17,7 @@ BLUE_SPACE_SHIP = pygame.image.load(os.path.join("assets", "pixel_ship_blue_smal
 BOSS = pygame.image.load(os.path.join("assets", "goblin2.png"))
 
 # ship ship
-# YELLOW_SPACE_SHIP = pygame.image.load(os.path.join("assets", "pixel_ship_yellow.png")) 
+
 YELLOW_SPACE_SHIP = pygame.image.load(os.path.join("assets", "vibhor_ship.png"))
 
 # lasers
@@ -50,7 +50,7 @@ class Laser:
         return collide(self, obj)
 
 
-# Moveable character #this is an abstract class we will use this to
+
 class Ship:
     COOLDOWN = 30
 
@@ -246,7 +246,7 @@ def main():
             enemy.move(enemy_vel)
             enemy.move_lasers(laser_vel, player)
 
-            if random.randrange(0, 360) == 1: #enemy shooting every 2 seconds
+            if random.randrange(0, 360) == 1: 
                 enemy.shoot()
 
             if collide(enemy, player):
@@ -263,29 +263,10 @@ def main():
             
         player.move_lasers(-laser_vel, enemies)
 
-# def main_menu():
-#     title_font = pygame.font.SysFont("comicsans", 70)
-#     run = True
-#     while run:
-#         WIN.blit(BG, (0,0))
-#         title_label = title_font.render("Press the mouse to begin...", 1, (255,255,255))
-#         WIN.blit(title_label, (WIDTH/2 - title_label.get_width()/2, 350))
-#         pygame.display.update()
-#         for event in pygame.event.get():
-#             if event.type == pygame.QUIT:
-#                 run = False
-#             if event.type == pygame.MOUSEBUTTONDOWN:
-#                 main()
+
     
     pygame.quit()        
 
 main()
 
 
-# add a mainmenu, that shows how to start the game the game
-# allow the player to play again instead of running
-# fix the laser position coming from the enemies
-# add a boss that has more health and spawns after a particular wave of enemy spawning
-# fix the position of laser coming from the player
-# make sure the health bar stays within the game window
-# add player movement with the arrow keys
